@@ -26,6 +26,16 @@ body {
 	background-color: rgb(218, 65, 103);
 }
 
+.btn-submit {
+	color: rgb(160, 160, 160);
+	background-color: rgb(38, 50, 56) !important;
+}
+
+.btn-submit:hover,
+.btn-submit:active {
+	color: whitesmoke !important;
+}
+
 .footer {
 	font-size: 12px;
 }

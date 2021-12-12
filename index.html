@@ -49,18 +49,23 @@
 				<section class="content mb-4">
 					<div class="card border-0 card-content p-2">
 						<div class="card-body">
-							<form name="customer-form">
+							<form name="customer-form" method="GET">
 								<!-- Gender -->
 								<div class="mb-3">
-									<label class="form-label fw-bold"
-										>Gender</label
+									<label
+										class="form-label fw-bold"
+										for="gender"
 									>
+										Gender
+									</label>
+									<small>(jenis kelamin)</small>
 									<div class="form-check">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="gender"
 											id="male"
+											checked
 										/>
 										<label
 											class="form-check-label"
@@ -87,16 +92,20 @@
 
 								<!-- Senior Citizen -->
 								<div class="mb-3">
-									<label class="form-label fw-bold">
+									<label
+										class="form-label fw-bold"
+										for="senior-citized"
+									>
 										Senior Citizen
 									</label>
-									<small>(Berusia 65 tahun ke atas?)</small>
+									<small>(berusia 65 tahun ke atas?)</small>
 									<div class="form-check">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="senior-citized"
 											id="yes"
+											checked
 										/>
 										<label
 											class="form-check-label"
@@ -123,16 +132,20 @@
 
 								<!-- Partner -->
 								<div class="mb-3">
-									<label class="form-label fw-bold">
+									<label
+										class="form-label fw-bold"
+										for="partner"
+									>
 										Partner
 									</label>
-									<small>(Berusia 65 tahun ke atas?)</small>
+									<small>(seorang mitra?)</small>
 									<div class="form-check">
 										<input
 											class="form-check-input"
 											type="radio"
-											name="senior-citized"
+											name="partner"
 											id="yes"
+											checked
 										/>
 										<label
 											class="form-check-label"
@@ -145,7 +158,7 @@
 										<input
 											class="form-check-input"
 											type="radio"
-											name="senior-citized"
+											name="partner"
 											id="no"
 										/>
 										<label
@@ -159,16 +172,20 @@
 
 								<!-- Dependents -->
 								<div class="mb-3">
-									<label class="form-label fw-bold">
-										Partner
+									<label
+										class="form-label fw-bold"
+										for="dependents"
+									>
+										Dependents
 									</label>
-									<small>(Berusia 65 tahun ke atas?)</small>
+									<small>(tinggal bersama tanggungan?)</small>
 									<div class="form-check">
 										<input
 											class="form-check-input"
 											type="radio"
-											name="senior-citized"
+											name="dependents"
 											id="yes"
+											checked
 										/>
 										<label
 											class="form-check-label"
@@ -181,7 +198,7 @@
 										<input
 											class="form-check-input"
 											type="radio"
-											name="senior-citized"
+											name="dependents"
 											id="no"
 										/>
 										<label
@@ -193,8 +210,401 @@
 									</div>
 								</div>
 
+								<!-- Tenure Months -->
+								<div class="mb-3">
+									<label
+										for="tenure-months"
+										class="form-label fw-bold"
+									>
+										Tenure Months
+									</label>
+									<small
+										>(total bulan yang telah
+										dihabiskan)</small
+									>
+									<input
+										type="number"
+										min="0"
+										step="1"
+										class="form-control"
+										id="tenure-months"
+										placeholder="0"
+										required
+									/>
+								</div>
+
+								<!-- Phone Service -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="phone-service"
+									>
+										Phone Service
+									</label>
+									<small>
+										(berlangganan layanan telepon rumah?)
+									</small>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="phone-service"
+											id="yes"
+											checked
+										/>
+										<label
+											class="form-check-label"
+											for="yes"
+										>
+											Yes
+										</label>
+									</div>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="phone-service"
+											id="no"
+										/>
+										<label
+											class="form-check-label"
+											for="no"
+										>
+											No
+										</label>
+									</div>
+								</div>
+
+								<!-- Multiple Line -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="multiple-line"
+									>
+										Multiple Line
+									</label>
+									<small>
+										(berlangganan beberapa saluran telepon?)
+									</small>
+									<select
+										class="form-select"
+										name="multiple-line"
+										id="multiple-line"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											No internet service
+										</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+									</select>
+								</div>
+
+								<!-- Internet Service -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="internet-service"
+									>
+										Internet Service
+									</label>
+									<small>
+										(berlangganan layanan Internet?)
+									</small>
+									<select
+										class="form-select"
+										name="internet-service"
+										id="internet-service"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>No</option>
+										<option value="1">DSL</option>
+										<option value="2">Fiber Optic</option>
+										<option value="3">Cable</option>
+									</select>
+								</div>
+
+								<!-- Online Security -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="online-security"
+									>
+										Online Security
+									</label>
+									<small>
+										(berlangganan layanan keamanan online
+										tambahan?)
+									</small>
+									<select
+										class="form-select"
+										name="online-security"
+										id="online-security"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											No internet service
+										</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+									</select>
+								</div>
+
+								<!-- Online Backup -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="online-security"
+									>
+										Online Backup
+									</label>
+									<small>
+										(berlangganan layanan pencadangan online
+										tambahan?)
+									</small>
+									<select
+										class="form-select"
+										name="online-security"
+										id="online-security"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											No internet service
+										</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+									</select>
+								</div>
+
+								<!-- Device Protection -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="device-protection"
+									>
+										Device Protection
+									</label>
+									<small>
+										(berlangganan paket perlindungan
+										perangkat tambahan?)
+									</small>
+									<select
+										class="form-select"
+										name="device-protection"
+										id="device-protection"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											No internet service
+										</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+									</select>
+								</div>
+
+								<!-- Tech Support -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="tech-support"
+									>
+										Tech Support
+									</label>
+									<small>
+										(berlangganan paket dukungan teknis
+										tambahan ?)
+									</small>
+									<select
+										class="form-select"
+										name="tech-support"
+										id="tech-support"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											No internet service
+										</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+									</select>
+								</div>
+
+								<!-- Streaming TV -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="streaming-tv"
+									>
+										Streaming TV
+									</label>
+									<select
+										class="form-select"
+										name="streaming-tv"
+										id="streaming-tv"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											No internet service
+										</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+									</select>
+								</div>
+
+								<!-- Streaming Movie -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="streaming-movie"
+									>
+										Streaming Movie
+									</label>
+
+									<select
+										class="form-select"
+										name="streaming-movie"
+										id="streaming-movie"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											No internet service
+										</option>
+										<option value="1">Yes</option>
+										<option value="2">No</option>
+									</select>
+								</div>
+
+								<!-- Contract -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="contract"
+									>
+										Contract
+									</label>
+
+									<select
+										class="form-select"
+										name="contract"
+										id="contract"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											Month-to-month
+										</option>
+										<option value="1">Two year</option>
+										<option value="2">One year</option>
+									</select>
+								</div>
+
+								<!-- Paperless Billing -->
+								<div class="mb-3">
+									<label
+										class="form-label fw-bold"
+										for="paperles-billing"
+									>
+										Paperless Billing
+									</label>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="paperles-billing"
+											id="yes"
+											checked
+										/>
+										<label
+											class="form-check-label"
+											for="yes"
+										>
+											Yes
+										</label>
+									</div>
+									<div class="form-check">
+										<input
+											class="form-check-input"
+											type="radio"
+											name="paperles-billing"
+											id="no"
+										/>
+										<label
+											class="form-check-label"
+											for="no"
+										>
+											No
+										</label>
+									</div>
+								</div>
+
+								<!-- Payment Method -->
+								<div class="mb-3">
+									<label class="form-label fw-bold">
+										Payment Method
+									</label>
+
+									<select
+										class="form-select"
+										name="payment-method"
+										id="payment-method"
+										aria-label="Default select example"
+									>
+										<option value="0" selected>
+											Mailed check
+										</option>
+										<option value="1">
+											Electronic check
+										</option>
+										<option value="2">
+											Bank transfer (automatic)
+										</option>
+										<option value="3">
+											Credit card (automatic)
+										</option>
+									</select>
+								</div>
+
+								<!-- Monthly Charges -->
+								<div class="mb-3">
+									<label
+										for="monthly-charges"
+										class="form-label fw-bold"
+									>
+										Monthly Charges
+									</label>
+									<small>(total biaya bulanan)</small>
+									<input
+										type="number"
+										min="0"
+										class="form-control"
+										id="monthly-charges"
+										placeholder="0"
+										required
+									/>
+								</div>
+
+								<!-- Total Charges -->
+								<div class="mb-3">
+									<label
+										for="total-charges"
+										class="form-label fw-bold"
+									>
+										Total Charges
+									</label>
+									<small>(total biaya kuartal)</small>
+									<input
+										type="number"
+										min="0"
+										class="form-control"
+										id="total-charges"
+										placeholder="0"
+										required
+									/>
+								</div>
+
 								<div class="d-grid">
-									<button type="submit" class="btn btn-light">
+									<button
+										type="submit"
+										class="btn btn-submit"
+									>
 										Predict
 									</button>
 								</div>
