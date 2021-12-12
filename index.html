@@ -50,22 +50,73 @@
 					<div class="card border-0 card-content p-2">
 						<div class="card-body">
 							<form name="customer-form" method="GET">
+								<div class="row mb-4">
+									<div class="col">
+										<!-- City -->
+
+										<label for="city" class="form-label"
+											>City</label
+										>
+										<input
+											class="form-control"
+											list="citylistOptions"
+											id="city"
+											name="city"
+											placeholder="Type your city..."
+										/>
+										<datalist id="citylistOptions">
+											<option
+												value="San Francisco"
+											></option>
+											<option value="New York"></option>
+											<option value="Seattle"></option>
+											<option
+												value="Los Angeles"
+											></option>
+											<option value="Chicago"></option>
+										</datalist>
+									</div>
+
+									<div class="col">
+										<!-- Postal Code -->
+										<label
+											for="postal-code"
+											class="form-label"
+											>Postal Code</label
+										>
+										<input
+											class="form-control"
+											list="postalCodelistOptions"
+											id="postal-code"
+											name="postal-code"
+											placeholder="Type your postal code..."
+										/>
+										<datalist id="postalCodelistOptions">
+											<option
+												value="San Francisco"
+											></option>
+											<option value="New York"></option>
+											<option value="Seattle"></option>
+											<option
+												value="Los Angeles"
+											></option>
+											<option value="Chicago"></option>
+										</datalist>
+									</div>
+								</div>
+
 								<!-- Gender -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="gender"
-									>
+								<div class="mb-4">
+									<label class="form-label fw-bold">
 										Gender
 									</label>
-									<small>(jenis kelamin)</small>
-									<div class="form-check">
+									<br />
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="gender"
 											id="male"
-											checked
 										/>
 										<label
 											class="form-check-label"
@@ -74,12 +125,13 @@
 											Male
 										</label>
 									</div>
-									<div class="form-check">
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="gender"
 											id="female"
+											required
 										/>
 										<label
 											class="form-check-label"
@@ -91,39 +143,38 @@
 								</div>
 
 								<!-- Senior Citizen -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="senior-citized"
-									>
+								<div class="mb-4">
+									<label class="form-label fw-bold">
 										Senior Citizen
 									</label>
+
 									<small>(berusia 65 tahun ke atas?)</small>
-									<div class="form-check">
+									<br />
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="senior-citized"
-											id="yes"
-											checked
+											id="senior-citized-yes"
 										/>
 										<label
 											class="form-check-label"
-											for="yes"
+											for="senior-citized-yes"
 										>
 											Yes
 										</label>
 									</div>
-									<div class="form-check">
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="senior-citized"
-											id="no"
+											id="senior-citized-no"
+											required
 										/>
 										<label
 											class="form-check-label"
-											for="no"
+											for="senior-citized-no"
 										>
 											No
 										</label>
@@ -131,39 +182,37 @@
 								</div>
 
 								<!-- Partner -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="partner"
-									>
+								<div class="mb-4">
+									<label class="form-label fw-bold">
 										Partner
 									</label>
 									<small>(seorang mitra?)</small>
-									<div class="form-check">
+									<br />
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="partner"
-											id="yes"
-											checked
+											id="partner-yes"
 										/>
 										<label
 											class="form-check-label"
-											for="yes"
+											for="partner-yes"
 										>
 											Yes
 										</label>
 									</div>
-									<div class="form-check">
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="partner"
-											id="no"
+											id="partner-no"
+											required
 										/>
 										<label
 											class="form-check-label"
-											for="no"
+											for="partner-no"
 										>
 											No
 										</label>
@@ -171,39 +220,37 @@
 								</div>
 
 								<!-- Dependents -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="dependents"
-									>
+								<div class="mb-4">
+									<label class="form-label fw-bold">
 										Dependents
 									</label>
 									<small>(tinggal bersama tanggungan?)</small>
-									<div class="form-check">
+									<br />
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="dependents"
-											id="yes"
-											checked
+											id="dependents-yes"
 										/>
 										<label
 											class="form-check-label"
-											for="yes"
+											for="dependents-yes"
 										>
 											Yes
 										</label>
 									</div>
-									<div class="form-check">
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="dependents"
-											id="no"
+											id="dependents-no"
+											required
 										/>
 										<label
 											class="form-check-label"
-											for="no"
+											for="dependents-no"
 										>
 											No
 										</label>
@@ -211,7 +258,7 @@
 								</div>
 
 								<!-- Tenure Months -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										for="tenure-months"
 										class="form-label fw-bold"
@@ -219,8 +266,8 @@
 										Tenure Months
 									</label>
 									<small
-										>(total bulan yang telah
-										dihabiskan)</small
+										>(total bulan yang telah dihabiskan di
+										perusahaan)</small
 									>
 									<input
 										type="number"
@@ -228,47 +275,46 @@
 										step="1"
 										class="form-control"
 										id="tenure-months"
+										name="tenure-months"
 										placeholder="0"
 										required
 									/>
 								</div>
 
 								<!-- Phone Service -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="phone-service"
-									>
+								<div class="mb-4">
+									<label class="form-label fw-bold">
 										Phone Service
 									</label>
 									<small>
 										(berlangganan layanan telepon rumah?)
 									</small>
-									<div class="form-check">
+									<br />
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="phone-service"
-											id="yes"
-											checked
+											id="phone-service-yes"
 										/>
 										<label
 											class="form-check-label"
-											for="yes"
+											for="phone-service-yes"
 										>
 											Yes
 										</label>
 									</div>
-									<div class="form-check">
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="phone-service"
-											id="no"
+											id="phone-service-no"
+											required
 										/>
 										<label
 											class="form-check-label"
-											for="no"
+											for="phone-service-no"
 										>
 											No
 										</label>
@@ -276,7 +322,7 @@
 								</div>
 
 								<!-- Multiple Line -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="multiple-line"
@@ -290,18 +336,20 @@
 										class="form-select"
 										name="multiple-line"
 										id="multiple-line"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
-											No internet service
+										<option
+											value="No Phone service"
+											selected
+										>
+											No Phone service
 										</option>
-										<option value="1">Yes</option>
-										<option value="2">No</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
 									</select>
 								</div>
 
 								<!-- Internet Service -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="internet-service"
@@ -315,17 +363,18 @@
 										class="form-select"
 										name="internet-service"
 										id="internet-service"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>No</option>
-										<option value="1">DSL</option>
-										<option value="2">Fiber Optic</option>
-										<option value="3">Cable</option>
+										<option value="No" selected>No</option>
+										<option value="DSL">DSL</option>
+										<option value="Fiber Optic">
+											Fiber Optic
+										</option>
+										<option value="Cable">Cable</option>
 									</select>
 								</div>
 
 								<!-- Online Security -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="online-security"
@@ -340,21 +389,23 @@
 										class="form-select"
 										name="online-security"
 										id="online-security"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
+										<option
+											value="No internet service"
+											selected
+										>
 											No internet service
 										</option>
-										<option value="1">Yes</option>
-										<option value="2">No</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
 									</select>
 								</div>
 
 								<!-- Online Backup -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
-										for="online-security"
+										for="online-backup"
 									>
 										Online Backup
 									</label>
@@ -364,20 +415,22 @@
 									</small>
 									<select
 										class="form-select"
-										name="online-security"
-										id="online-security"
-										aria-label="Default select example"
+										name="online-backup"
+										id="online-backup"
 									>
-										<option value="0" selected>
+										<option
+											value="No internet service"
+											selected
+										>
 											No internet service
 										</option>
-										<option value="1">Yes</option>
-										<option value="2">No</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
 									</select>
 								</div>
 
 								<!-- Device Protection -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="device-protection"
@@ -392,18 +445,20 @@
 										class="form-select"
 										name="device-protection"
 										id="device-protection"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
+										<option
+											value="No internet service"
+											selected
+										>
 											No internet service
 										</option>
-										<option value="1">Yes</option>
-										<option value="2">No</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
 									</select>
 								</div>
 
 								<!-- Tech Support -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="tech-support"
@@ -418,18 +473,20 @@
 										class="form-select"
 										name="tech-support"
 										id="tech-support"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
+										<option
+											value="No internet service"
+											selected
+										>
 											No internet service
 										</option>
-										<option value="1">Yes</option>
-										<option value="2">No</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
 									</select>
 								</div>
 
 								<!-- Streaming TV -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="streaming-tv"
@@ -440,95 +497,102 @@
 										class="form-select"
 										name="streaming-tv"
 										id="streaming-tv"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
+										<option
+											value="No internet service"
+											selected
+										>
 											No internet service
 										</option>
-										<option value="1">Yes</option>
-										<option value="2">No</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
 									</select>
 								</div>
 
 								<!-- Streaming Movie -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="streaming-movie"
 									>
 										Streaming Movie
 									</label>
-
 									<select
 										class="form-select"
 										name="streaming-movie"
 										id="streaming-movie"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
+										<option
+											value="No internet service"
+											selected
+										>
 											No internet service
 										</option>
-										<option value="1">Yes</option>
-										<option value="2">No</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
 									</select>
 								</div>
 
 								<!-- Contract -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="contract"
 									>
 										Contract
 									</label>
-
 									<select
 										class="form-select"
 										name="contract"
 										id="contract"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
+										<option value="Month-to-month" selected>
 											Month-to-month
 										</option>
-										<option value="1">Two year</option>
-										<option value="2">One year</option>
+										<option value="Two year">
+											Two year
+										</option>
+										<option value="One year">
+											One year
+										</option>
 									</select>
 								</div>
 
 								<!-- Paperless Billing -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="paperles-billing"
-									>
+								<div class="mb-4">
+									<label class="form-label fw-bold">
 										Paperless Billing
 									</label>
-									<div class="form-check">
+									<small
+										>(memilih penagihan tanpa
+										kertas?)</small
+									>
+									<br />
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="paperles-billing"
-											id="yes"
-											checked
+											id="paperles-billing-yes"
 										/>
 										<label
 											class="form-check-label"
-											for="yes"
+											for="paperles-billing-yes"
 										>
 											Yes
 										</label>
 									</div>
-									<div class="form-check">
+									<div class="form-check form-check-inline">
 										<input
 											class="form-check-input"
 											type="radio"
 											name="paperles-billing"
-											id="no"
+											id="paperles-billing-no"
+											required
 										/>
 										<label
 											class="form-check-label"
-											for="no"
+											for="paperles-billing-no"
 										>
 											No
 										</label>
@@ -536,34 +600,37 @@
 								</div>
 
 								<!-- Payment Method -->
-								<div class="mb-3">
-									<label class="form-label fw-bold">
+								<div class="mb-4">
+									<label
+										class="form-label fw-bold"
+										for="payment-method"
+									>
 										Payment Method
 									</label>
-
 									<select
 										class="form-select"
 										name="payment-method"
 										id="payment-method"
-										aria-label="Default select example"
 									>
-										<option value="0" selected>
+										<option value="Mailed check" selected>
 											Mailed check
 										</option>
-										<option value="1">
+										<option value="Electronic check">
 											Electronic check
 										</option>
-										<option value="2">
+										<option
+											value="Bank transfer (automatic)"
+										>
 											Bank transfer (automatic)
 										</option>
-										<option value="3">
+										<option value="Credit card (automatic)">
 											Credit card (automatic)
 										</option>
 									</select>
 								</div>
 
 								<!-- Monthly Charges -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										for="monthly-charges"
 										class="form-label fw-bold"
@@ -574,15 +641,17 @@
 									<input
 										type="number"
 										min="0"
+										step="0.01"
 										class="form-control"
 										id="monthly-charges"
+										name="monthly-charges"
 										placeholder="0"
 										required
 									/>
 								</div>
 
 								<!-- Total Charges -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										for="total-charges"
 										class="form-label fw-bold"
@@ -593,8 +662,10 @@
 									<input
 										type="number"
 										min="0"
+										step="0.01"
 										class="form-control"
 										id="total-charges"
+										name="total-charges"
 										placeholder="0"
 										required
 									/>
