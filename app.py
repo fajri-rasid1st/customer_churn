@@ -6,7 +6,7 @@ import pandas
 app = Flask(__name__)
 
 
-def do_predic(
+def do_predict(
     City,
     Zip_Code,
     Gender,
@@ -29,7 +29,7 @@ def do_predic(
     Monthly_Charges,
     Total_Charges,
 ):
-    predic = {
+    predict = {
         "City": City,
         "Zip Code": Zip_Code,
         "Gender": Gender,
@@ -53,7 +53,7 @@ def do_predic(
         "Total Charges": Total_Charges,
     }
 
-    to_data_frame = pandas.DataFrame(data=predic, index=[0])
+    to_data_frame = pandas.DataFrame(data=predict, index=[0])
 
     the_model = joblib.load("clfFinalModel4.sav")
 
@@ -100,7 +100,7 @@ def index():
     Monthly_Charges = request.args.get("monthly-charges")
     Total_Charges = request.args.get("total-charges")
 
-    result = do_predic(
+    result = do_predict(
         City,
         Zip_Code,
         Gender,
