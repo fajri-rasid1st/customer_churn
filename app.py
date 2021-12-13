@@ -5,6 +5,7 @@ import pandas
 
 app = Flask(__name__)
 
+
 def do_predic(
     City,
     Zip_Code,
@@ -55,7 +56,7 @@ def do_predic(
 
     the_model = joblib.load("clfFinalModel3.sav")
     result = the_model.predict(to_data_frame)
-    
+
     return result
 
 
