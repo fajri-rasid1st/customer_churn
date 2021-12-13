@@ -50,13 +50,13 @@
 				justify-content-center
 			"
 		>
-			<div class="w-50 m-4">
+			<div class="w-75 m-4">
 				<!-- Header -->
 				<header class="header mb-4">
 					<div class="h1 fw-bold mb-0">Telco Customer Churn</div>
 					<div class="text-sm-start">
 						Memprediksi apakah customer akan meninggalkan perusahaan
-						atau tidak. {{result}}
+						atau tidak.
 					</div>
 				</header>
 
@@ -74,19 +74,24 @@
 										>
 											City
 										</label>
-										<select
-											class="form-select"
-											id="city"
-											name="city"
-										>
-											{% for name in cities %}
-											<option
-												value="{{city_number[loop.index0]}}"
+										<div class="input-group">
+											<span class="input-group-text">
+												<i class="far fa-building"></i>
+											</span>
+											<select
+												class="form-select"
+												id="city"
+												name="city"
 											>
-												{{ name }}
-											</option>
-											{% endfor %}
-										</select>
+												{% for name in cities %}
+												<option
+													value="{{city_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
 									</div>
 
 									<div class="col">
@@ -97,97 +102,126 @@
 										>
 											Zip Code
 										</label>
-										<select
-											class="form-select"
-											id="zip-code"
-											name="zip-code"
-										>
-											{% for name in zip_codes %}
-											<option
-												value="{{zip_code_number[loop.index0]}}"
+										<div class="input-group">
+											<span class="input-group-text">
+												<i
+													class="far fa-paper-plane"
+												></i>
+											</span>
+											<select
+												class="form-select"
+												id="zip-code"
+												name="zip-code"
 											>
-												{{ name }}
-											</option>
-											{% endfor %}
-										</select>
+												{% for name in zip_codes %}
+												<option
+													value="{{zip_code_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
 									</div>
 								</div>
 
-								<!-- Gender -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="gender"
-									>
-										Gender
-									</label>
-									<small>(jenis kelamin)</small>
-
-									<select
-										class="form-select"
-										id="gender"
-										name="gender"
-									>
-										{% for name in genders %}
-										<option
-											value="{{gender_number[loop.index0]}}"
+								<div class="row mb-4">
+									<div class="col">
+										<!-- Gender -->
+										<label
+											class="form-label fw-bold"
+											for="gender"
 										>
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
-								</div>
+											Gender
+										</label>
+										<small> (jenis kelamin) </small>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i
+													class="fas fa-venus-mars"
+												></i>
+											</span>
+											<select
+												class="form-select"
+												id="gender"
+												name="gender"
+											>
+												{% for name in genders %}
+												<option
+													value="{{gender_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 
-								<!-- Senior Citizen -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="senior-citized"
-									>
-										Senior Citizen
-									</label>
-									<small>(berusia 65 tahun ke atas?)</small>
-									<select
-										class="form-select"
-										id="senior-citized"
-										name="senior-citized"
-									>
-										{% for name in yes_or_no_only %}
-										<option
-											value="{{yes_or_no_only_number[loop.index0]}}"
+									<div class="col">
+										<!-- Senior Citizen -->
+										<label
+											class="form-label fw-bold"
+											for="senior-citized"
 										>
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
-								</div>
+											Senior Citizen
+										</label>
+										<small
+											>(berusia 65 tahun ke atas?)
+										</small>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i
+													class="fas fa-chess-knight"
+												></i>
+											</span>
+											<select
+												class="form-select"
+												id="senior-citized"
+												name="senior-citized"
+											>
+												{% for name in yes_or_no_only %}
+												<option
+													value="{{yes_or_no_only_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 
-								<!-- Partner -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="partner"
-									>
-										Partner
-									</label>
-									<small>(seorang mitra?)</small>
-									<select
-										class="form-select"
-										id="partner"
-										name="partner"
-									>
-										{% for name in yes_or_no_only %}
-										<option
-											value="{{yes_or_no_only_number[loop.index0]}}"
+									<div class="col">
+										<!-- Partner -->
+										<label
+											class="form-label fw-bold"
+											for="partner"
 										>
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
+											Partner
+										</label>
+										<small>(seorang mitra?)</small>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i class="far fa-handshake"></i>
+											</span>
+											<select
+												class="form-select"
+												id="partner"
+												name="partner"
+											>
+												{% for name in yes_or_no_only %}
+												<option
+													value="{{yes_or_no_only_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 								</div>
 
 								<!-- Dependents -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="dependents"
@@ -211,17 +245,16 @@
 								</div>
 
 								<!-- Tenure Months -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="tenure-months"
 									>
 										Tenure Months
 									</label>
-									<small
-										>(total bulan yang telah
-										dihabiskan)</small
-									>
+									<small>
+										(total bulan yang telah dihabiskan)
+									</small>
 									<select
 										class="form-select"
 										id="tenure-months"
@@ -236,7 +269,7 @@
 								</div>
 
 								<!-- Phone Service -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="phone-service"
@@ -262,7 +295,7 @@
 								</div>
 
 								<!-- Multiple Line -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="multiple-line"
@@ -286,7 +319,7 @@
 								</div>
 
 								<!-- Internet Service -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="internet-service"
@@ -301,14 +334,14 @@
 										id="internet-service"
 										name="internet-service"
 									>
-										<option selected value="1.2">No</option>
+										<option selected value="2.0">No</option>
 										<option value="0.0">DSL</option>
 										<option value="1.0">Fiber Optic</option>
 									</select>
 								</div>
 
 								<!-- Online Security -->
-								<div class="mb-3">
+								<div class="mb-4">
 									<label
 										class="form-label fw-bold"
 										for="online-security"
@@ -338,7 +371,7 @@
 								<div class="mb-3">
 									<label
 										class="form-label fw-bold"
-										for="Online-Backup"
+										for="online-backup"
 									>
 										Online Backup
 									</label>
@@ -348,8 +381,8 @@
 									</small>
 									<select
 										class="form-select"
-										id="Online-Backup"
-										name="Online-Backup"
+										id="online-backup"
+										name="online-backup"
 									>
 										{% for name in yes_no_services %}
 										<option
@@ -388,193 +421,257 @@
 									</select>
 								</div>
 
-								<!-- Tech Support -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="tech-support"
-									>
-										Tech Support
-									</label>
-									<small>
-										(berlangganan paket dukungan teknis
-										tambahan ?)
-									</small>
-									<select
-										class="form-select"
-										id="tech-support"
-										name="tech-support"
-									>
-										{% for name in yes_no_services %}
-										<option
-											value="{{yes_no_services_number[loop.index0]}}"
+								<div class="row mb-4">
+									<div class="col-6">
+										<!-- Tech Support -->
+										<label
+											class="form-label fw-bold"
+											for="tech-support"
 										>
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
-								</div>
+											Tech Support
+										</label>
+										<small>
+											(berlangganan paket dukungan teknis
+											tambahan?)
+										</small>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i
+													class="
+														fas
+														fa-chalkboard-teacher
+													"
+												></i>
+											</span>
+											<select
+												class="form-select"
+												id="tech-support"
+												name="tech-support"
+											>
+												{% for name in yes_no_services
+												%}
+												<option
+													value="{{yes_no_services_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 
-								<!-- Streaming TV -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="streaming-tv"
-									>
-										Streaming TV
-									</label>
-									<select
-										class="form-select"
-										id="streaming-tv"
-										name="streaming-tv"
-									>
-										{% for name in yes_no_services %}
-										<option
-											value="{{yes_no_services_number[loop.index0]}}"
+									<div class="col-3">
+										<!-- Streaming TV -->
+										<label
+											class="form-label fw-bold"
+											for="streaming-tv"
 										>
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
-								</div>
+											Streaming TV
+										</label>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i class="fas fa-tv"></i>
+											</span>
+											<select
+												class="form-select"
+												id="streaming-tv"
+												name="streaming-tv"
+											>
+												{% for name in yes_no_services
+												%}
+												<option
+													value="{{yes_no_services_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 
-								<!-- Streaming Movie -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="streaming-movie"
-									>
-										Streaming Movie
-									</label>
-
-									<select
-										class="form-select"
-										id="streaming-movie"
-										name="streaming-movie"
-									>
-										{% for name in yes_no_services %}
-										<option
-											value="{{yes_no_services_number[loop.index0]}}"
+									<div class="col-3">
+										<!-- Streaming Movie -->
+										<label
+											class="form-label fw-bold"
+											for="streaming-movie"
 										>
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
+											Streaming Movie
+										</label>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i class="fas fa-film"></i>
+											</span>
+											<select
+												class="form-select"
+												id="streaming-movie"
+												name="streaming-movie"
+											>
+												{% for name in yes_no_services
+												%}
+												<option
+													value="{{yes_no_services_number[loop.index0]}}"
+												>
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 								</div>
 
-								<!-- Contract -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="contract"
-									>
-										Contract
-									</label>
-
-									<select
-										class="form-select"
-										id="contract"
-										name="contract"
-									>
-										<option selected value="0.0">
-											Month-to-month
-										</option>
-										<option value="2.0">Two year</option>
-										<option value="1.0">One year</option>
-									</select>
-								</div>
-
-								<!-- Paperless Billing -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="paperles-billing"
-									>
-										Paperless Billing
-									</label>
-									<select
-										class="form-select"
-										id="paperles-billing"
-										name="paperles-billing"
-									>
-										{% for name in yes_or_no_only %}
-										<option
-											value="{{yes_or_no_only_number[loop.index0]}}"
+								<div class="row mb-4">
+									<div class="col-3">
+										<!-- Contract -->
+										<label
+											class="form-label fw-bold"
+											for="contract"
 										>
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
+											Contract
+										</label>
+										<select
+											class="form-select"
+											id="contract"
+											name="contract"
+										>
+											<option selected value="0.0">
+												Month-to-month
+											</option>
+											<option value="2.0">
+												Two year
+											</option>
+											<option value="1.0">
+												One year
+											</option>
+										</select>
+									</div>
+
+									<div class="col-3">
+										<!-- Paperless Billing -->
+										<label
+											class="form-label fw-bold"
+											for="paperles-billing"
+										>
+											Paperless Billing
+										</label>
+										<select
+											class="form-select"
+											id="paperles-billing"
+											name="paperles-billing"
+										>
+											{% for name in yes_or_no_only %}
+											<option
+												value="{{yes_or_no_only_number[loop.index0]}}"
+											>
+												{{ name }}
+											</option>
+											{% endfor %}
+										</select>
+									</div>
+
+									<div class="col-6">
+										<!-- Payment Method -->
+										<div class="mb-3">
+											<label
+												class="form-label fw-bold"
+												for="payment-method"
+											>
+												Payment Method
+											</label>
+											<div class="input-group">
+												<span class="input-group-text">
+													<i
+														class="
+															far
+															fa-credit-card
+														"
+													></i>
+												</span>
+												<select
+													class="form-select"
+													id="payment-method"
+													name="payment-method"
+												>
+													<option
+														selected
+														value="3.0"
+													>
+														Mailed check
+													</option>
+													<option value="2.0">
+														Electronic check
+													</option>
+													<option value="0.0">
+														Bank transfer
+														(automatic)
+													</option>
+													<option value="1.0">
+														Credit card (automatic)
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>
 								</div>
 
-								<!-- Payment Method -->
-								<div class="mb-3">
-									<label class="form-label fw-bold">
-										Payment Method
-									</label>
+								<div class="row mb-4">
+									<div class="col">
+										<!-- Monthly Charges -->
+										<label
+											class="form-label fw-bold"
+											for="monthly-charges"
+										>
+											Monthly Charges
+										</label>
+										<small>(total biaya bulanan)</small>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i
+													class="fas fa-dollar-sign"
+												></i>
+											</span>
+											<select
+												class="form-select"
+												id="monthly-charges"
+												name="monthly-charges"
+											>
+												{% for name in monthly_charges
+												%}
+												<option value="{{ name }}">
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 
-									<select
-										class="form-select"
-										id="payment-method"
-										name="payment-method"
-									>
-										<option selected value="3.0">
-											Mailed check
-										</option>
-										<option value="2.0">
-											Electronic check
-										</option>
-										<option value="0.0">
-											Bank transfer (automatic)
-										</option>
-										<option value="1.0">
-											Credit card (automatic)
-										</option>
-									</select>
-								</div>
-
-								<!-- Monthly Charges -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="monthly-charges"
-									>
-										Monthly Charges
-									</label>
-									<small>(total biaya bulanan)</small>
-									<select
-										class="form-select"
-										id="monthly-charges"
-										name="monthly-charges"
-									>
-										{% for name in monthly_charges %}
-										<option value="{{ name }}">
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
-								</div>
-
-								<!-- Total Charges -->
-								<div class="mb-3">
-									<label
-										class="form-label fw-bold"
-										for="total-charges"
-									>
-										Total Charges
-									</label>
-									<small>(total biaya kuartal)</small>
-									<select
-										class="form-select"
-										id="total-charges"
-										name="total-charges"
-									>
-										{% for name in total_charges %}
-										<option value="{{ name }}">
-											{{ name }}
-										</option>
-										{% endfor %}
-									</select>
+									<div class="col">
+										<!-- Total Charges -->
+										<label
+											class="form-label fw-bold"
+											for="total-charges"
+										>
+											Total Charges
+										</label>
+										<small>(total biaya kuartal)</small>
+										<div class="input-group">
+											<span class="input-group-text">
+												<i
+													class="fas fa-dollar-sign"
+												></i>
+											</span>
+											<select
+												class="form-select"
+												id="total-charges"
+												name="total-charges"
+											>
+												{% for name in total_charges %}
+												<option value="{{ name }}">
+													{{ name }}
+												</option>
+												{% endfor %}
+											</select>
+										</div>
+									</div>
 								</div>
 
 								<div class="d-grid">

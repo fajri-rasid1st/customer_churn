@@ -79,7 +79,7 @@ def index():
     gender_number = repository.gender_number
 
     City = request.args.get("city")
-    Zip_Code = request.args.get("zip_code")
+    Zip_Code = request.args.get("zip-code")
     Gender = request.args.get("gender")
     Senior_Citizen = request.args.get("senior-citized")
     Partner = request.args.get("partner")
@@ -89,7 +89,7 @@ def index():
     Multiple_Lines = request.args.get("multiple-line")
     Internet_Service = request.args.get("internet-service")
     Online_Security = request.args.get("online-security")
-    Online_Backup = request.args.get("Online-Backup")
+    Online_Backup = request.args.get("online-backup")
     Device_Protection = request.args.get("device-protection")
     Tech_Support = request.args.get("tech-support")
     Streaming_TV = request.args.get("streaming-tv")
@@ -143,4 +143,4 @@ def index():
     )
 
 
-app.run()
+app.run(debug=True)
