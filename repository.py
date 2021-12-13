@@ -5655,7 +5655,7 @@ tenure_months = [
     72.0,
 ]
 
-genderS = ["Male", "Female"]
+genders = ["Male", "Female"]
 
 gender_number = [1.0, 0.0]
 

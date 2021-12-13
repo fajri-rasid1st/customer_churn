@@ -52,22 +52,23 @@ def do_predic(
         "Monthly Charges": Monthly_Charges,
         "Total Charges": Total_Charges,
     }
+
     to_data_frame = pandas.DataFrame(data=predic, index=[0])
 
     the_model = joblib.load("clfFinalModel3.sav")
+
     result = the_model.predict(to_data_frame)
 
     return result
 
 
 @app.route("/", methods=["GET", "POST"])
-
 def index():
     cities = repository.cities
     city_number = repository.city_number
     zip_codes = repository.zip_codes
     zip_code_number = repository.zip_code_number
-    genderS = repository.genderS
+    genders = repository.genders
     yes_or_no_only = repository.yes_or_no_only
     yes_no_services = repository.yes_no_services
     yes_no_services_number = repository.yes_no_services_number
@@ -76,7 +77,6 @@ def index():
     total_charges = repository.total_charges
     yes_or_no_only_number = repository.yes_or_no_only_number
     gender_number = repository.gender_number
-
 
     City = request.args.get("city")
     Zip_Code = request.args.get("zip_code")
@@ -128,7 +128,7 @@ def index():
         "index.html",
         cities=cities,
         zip_codes=zip_codes,
-        genderS=genderS,
+        genders=genders,
         yes_or_no_only=yes_or_no_only,
         tenure_months=tenure_months,
         monthly_charges=monthly_charges,
@@ -141,3 +141,6 @@ def index():
         yes_no_services_number=yes_no_services_number,
         result=result,
     )
+
+
+app.run()
