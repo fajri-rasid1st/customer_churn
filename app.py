@@ -61,6 +61,7 @@ def do_predic(
 
 
 @app.route("/", methods=["GET", "POST"])
+
 def index():
     cities = repository.cities
     city_number = repository.city_number
@@ -75,6 +76,7 @@ def index():
     total_charges = repository.total_charges
     yes_or_no_only_number = repository.yes_or_no_only_number
     gender_number = repository.gender_number
+
 
     City = request.args.get("city")
     Zip_Code = request.args.get("zip_code")

@@ -1,751 +1,430 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Required meta tags -->
-		<meta charset="utf-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1, shrink-to-fit=no"
-		/>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8"/>
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
 
-		<!-- Bootstrap CSS -->
-		<link
-			href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-			rel="stylesheet"
-			integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-			crossorigin="anonymous"
-		/>
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet"/>
 
-		<!-- Google font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap"
-			rel="stylesheet"
-		/>
+    <!-- Font awesome -->
+    <link href="css/all.min.css" rel="stylesheet"/>
 
-		<!-- Font awesome -->
-		<link rel="stylesheet" href="css/all.min.css" />
+    <!-- CSS external link -->
+    <link href="css/style.css" rel="stylesheet"/>
 
-		<!-- CSS external link -->
-		<link rel="stylesheet" href="css/style.css" />
+    <!-- Title -->
+    <title>Predict Customer Churn</title>
+</head>
 
-		<!-- Title -->
-		<title>Predict Customer Churn</title>
-	</head>
-	<body>
-		<div
-			class="
+<body>
+<div class="
 				container-fluid
 				d-flex
 				align-content-center
 				justify-content-center
-			"
-		>
-			<div class="w-50 m-4">
-				<!-- Header -->
-				<header class="header mb-4">
-					<div class="h1 fw-bold mb-0">Telco Customer Churn</div>
-					<div class="text-sm-start">
-						Memprediksi apakah customer akan meninggalkan perusahaan
-						atau tidak.
-					</div>
-				</header>
+			">
+    <div class="w-50 m-4">
+        <!-- Header -->
+        <header class="header mb-4">
+            <div class="h1 fw-bold mb-0">Telco Customer Churn</div>
+            <div class="text-sm-start">
+                Memprediksi apakah customer akan meninggalkan perusahaan
+                atau tidak.
 
-				<!-- Content -->
-				<section class="content mb-4">
-					<div class="card border-0 card-content p-2">
-						<div class="card-body">
-							<form name="customer-form" method="GET">
-								<div class="row mb-4">
-									<div class="col">
-										<!-- City -->
-										<label for="city" class="form-label">
-											City
-										</label>
-										<input
-											class="form-control"
-											list="citylistOptions"
-											id="city"
-											name="city"
-											placeholder="Type your city..."
-										/>
-										<datalist id="citylistOptions">
-											<option
-												value="San Francisco"
-											></option>
-											<option value="New York"></option>
-											<option value="Seattle"></option>
-											<option
-												value="Los Angeles"
-											></option>
-											<option value="Chicago"></option>
-										</datalist>
-									</div>
+                {{ result }}
+            </div>
+        </header>
 
-									<div class="col">
-										<!-- Postal Code -->
-										<label
-											for="postal-code"
-											class="form-label"
-										>
-											Postal Code
-										</label>
-										<input
-											class="form-control"
-											list="postalCodelistOptions"
-											id="postal-code"
-											name="postal-code"
-											placeholder="Type your postal code..."
-										/>
-										<datalist id="postalCodelistOptions">
-											<option
-												value="San Francisco"
-											></option>
-											<option value="New York"></option>
-											<option value="Seattle"></option>
-											<option
-												value="Los Angeles"
-											></option>
-											<option value="Chicago"></option>
-										</datalist>
-									</div>
-								</div>
+        <!-- Content -->
+        <section class="content mb-4">
+            <div class="card border-0 card-content p-2">
+                <div class="card-body">
+                    <form method="GET" name="customer-form">
+                        <!-- Gender -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="gender">
+                                Gender
+                            </label>
+                            <small>(jenis kelamin)</small>
 
-								<!-- Gender -->
-								<div class="mb-4">
-									<label class="form-label fw-bold">
-										Gender
-									</label>
-									<br />
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="gender"
-											id="male"
-										/>
-										<label
-											class="form-check-label"
-											for="male"
-										>
-											Male
-										</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="gender"
-											id="female"
-											required
-										/>
-										<label
-											class="form-check-label"
-											for="female"
-										>
-											Female
-										</label>
-									</div>
-								</div>
+                            <select aria-label="Default select example" class="form-select" id="gender"
+                                    name="gender">
+                                {% for name in genderS %}
+                                <option value={{ gender_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Senior Citizen -->
-								<div class="mb-4">
-									<label class="form-label fw-bold">
-										Senior Citizen
-									</label>
-									<small>(berusia 65 tahun ke atas?)</small>
-									<br />
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="senior-citized"
-											id="senior-citized-yes"
-										/>
-										<label
-											class="form-check-label"
-											for="senior-citized-yes"
-										>
-											Yes
-										</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="senior-citized"
-											id="senior-citized-no"
-											required
-										/>
-										<label
-											class="form-check-label"
-											for="senior-citized-no"
-										>
-											No
-										</label>
-									</div>
-								</div>
+                        <!-- Senior Citizen -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="senior-citized">
+                                Senior Citizen
+                            </label>
+                            <small>(berusia 65 tahun ke atas?)</small>
+                            <select aria-label="Default select example" class="form-select" id="senior-citized"
+                                    name="senior-citized">
+                                {% for name in yes_or_no_only %}
+                                <option value={{ yes_or_no_only_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Partner -->
-								<div class="mb-4">
-									<label class="form-label fw-bold">
-										Partner
-									</label>
-									<small>(seorang mitra?)</small>
-									<br />
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="partner"
-											id="partner-yes"
-										/>
-										<label
-											class="form-check-label"
-											for="partner-yes"
-										>
-											Yes
-										</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="partner"
-											id="partner-no"
-											required
-										/>
-										<label
-											class="form-check-label"
-											for="partner-no"
-										>
-											No
-										</label>
-									</div>
-								</div>
+                        <!-- Partner -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="partner">
+                                Partner
+                            </label>
+                            <small>(seorang mitra?)</small>
+                            <select aria-label="Default select example" class="form-select" id="partner"
+                                    name="partner">
+                                {% for name in yes_or_no_only %}
+                                <option value={{ yes_or_no_only_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Dependents -->
-								<div class="mb-4">
-									<label class="form-label fw-bold">
-										Dependents
-									</label>
-									<small>(tinggal bersama tanggungan?)</small>
-									<br />
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="dependents"
-											id="dependents-yes"
-										/>
-										<label
-											class="form-check-label"
-											for="dependents-yes"
-										>
-											Yes
-										</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="dependents"
-											id="dependents-no"
-											required
-										/>
-										<label
-											class="form-check-label"
-											for="dependents-no"
-										>
-											No
-										</label>
-									</div>
-								</div>
+                        <!-- Dependents -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="dependents">
+                                Dependents
+                            </label>
+                            <small>(tinggal bersama tanggungan?)</small>
+                            <select aria-label="Default select example" class="form-select" id="dependents"
+                                    name="dependents">
+                                {% for name in yes_or_no_only %}
+                                <option value={{ yes_or_no_only_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Tenure Months -->
-								<label
-									for="tenure-months"
-									class="form-label fw-bold"
-								>
-									Tenure Months
-								</label>
-								<small>
-									(total bulan yang telah dihabiskan di
-									perusahaan)
-								</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="far fa-building"></i>
-									</span>
-									<input
-										type="number"
-										min="0"
-										step="1"
-										class="form-control"
-										id="tenure-months"
-										name="tenure-months"
-										placeholder="0"
-										required
-									/>
-								</div>
+                        <!-- Tenure Months -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="tenure-months">
+                                Tenure Months
+                            </label>
+                            <small>(total bulan yang telah
+                                dihabiskan)</small>
+                            <select aria-label="Default select example" class="form-select" id="tenure-months"
+                                    name="tenure-months">
+                                {% for name in tenure_months %}
+                                <option value={{ name }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Phone Service -->
-								<div class="mb-4">
-									<label class="form-label fw-bold">
-										Phone Service
-									</label>
-									<small>
-										(berlangganan layanan telepon rumah?)
-									</small>
-									<br />
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="phone-service"
-											id="phone-service-yes"
-										/>
-										<label
-											class="form-check-label"
-											for="phone-service-yes"
-										>
-											Yes
-										</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="phone-service"
-											id="phone-service-no"
-											required
-										/>
-										<label
-											class="form-check-label"
-											for="phone-service-no"
-										>
-											No
-										</label>
-									</div>
-								</div>
+                        <!-- Phone Service -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="phone-service">
+                                Phone Service
+                            </label>
+                            <small>
+                                (berlangganan layanan telepon rumah?)
+                            </small>
+                            <select aria-label="Default select example" class="form-select" id="phone-service"
+                                    name="phone-service">
+                                {% for name in yes_or_no_only %}
+                                <option value={{ yes_or_no_only_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Multiple Line -->
-								<label
-									class="form-label fw-bold"
-									for="multiple-line"
-								>
-									Multiple Line
-								</label>
-								<small>
-									(berlangganan beberapa saluran telepon?)
-								</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-phone-volume"></i>
-									</span>
-									<select
-										class="form-select"
-										name="multiple-line"
-										id="multiple-line"
-									>
-										<option
-											value="No Phone service"
-											selected
-										>
-											No Phone service
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
+                        <!-- Multiple Line -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="multiple-line">
+                                Multiple Line
+                            </label>
+                            <small>
+                                (berlangganan beberapa saluran telepon?)
+                            </small>
+                            <select aria-label="Default select example" class="form-select" id="multiple-line"
+                                    name="multiple-line">
+                                <option selected value=1.0>
+                                    No phone service
+                                </option>
+                                <option value=2.0>Yes</option>
+                                <option value=0.0>No</option>
+                            </select>
+                        </div>
 
-								<!-- Internet Service -->
-								<label
-									class="form-label fw-bold"
-									for="internet-service"
-								>
-									Internet Service
-								</label>
-								<small>
-									(berlangganan layanan Internet?)
-								</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-wifi"></i>
-									</span>
-									<select
-										class="form-select"
-										name="internet-service"
-										id="internet-service"
-									>
-										<option value="No" selected>No</option>
-										<option value="DSL">DSL</option>
-										<option value="Fiber Optic">
-											Fiber Optic
-										</option>
-										<option value="Cable">Cable</option>
-									</select>
-								</div>
+                        <!-- Internet Service -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="internet-service">
+                                Internet Service
+                            </label>
+                            <small>
+                                (berlangganan layanan Internet?)
+                            </small>
+                            <select aria-label="Default select example" class="form-select" id="internet-service"
+                                    name="internet-service">
+                                <option selected value=1.2>No</option>
+                                <option value=0.0>DSL</option>
+                                <option value=1.0>Fiber Optic</option>
+                            </select>
+                        </div>
 
-								<!-- Online Security -->
-								<label
-									class="form-label fw-bold"
-									for="online-security"
-								>
-									Online Security
-								</label>
-								<small>
-									(berlangganan layanan keamanan online
-									tambahan?)
-								</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-user-shield"></i>
-									</span>
-									<select
-										class="form-select"
-										name="online-security"
-										id="online-security"
-									>
-										<option
-											value="No internet service"
-											selected
-										>
-											No internet service
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
+                        <!-- Online Security -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="online-security">
+                                Online Security
+                            </label>
+                            <small>
+                                (berlangganan layanan keamanan online
+                                tambahan?)
+                            </small>
+                            <select aria-label="Default select example" class="form-select" id="online-security"
+                                    name="online-security">
+                                {% for name in yes_no_services %}
+                                <option value={{ yes_no_services_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Online Backup -->
-								<label
-									class="form-label fw-bold"
-									for="online-backup"
-								>
-									Online Backup
-								</label>
-								<small>
-									(berlangganan layanan pencadangan online
-									tambahan?)
-								</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="far fa-window-restore"></i>
-									</span>
-									<select
-										class="form-select"
-										name="online-backup"
-										id="online-backup"
-									>
-										<option
-											value="No internet service"
-											selected
-										>
-											No internet service
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
+                        <!-- Online Backup -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="Online-Backup">
+                                Online Backup
+                            </label>
+                            <small>
+                                (berlangganan layanan pencadangan online
+                                tambahan?)
+                            </small>
+                            <select aria-label="Default select example" class="form-select" id="Online-Backup"
+                                    name="Online-Backup">
+                                {% for name in yes_no_services %}
+                                <option value={{ yes_no_services_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Device Protection -->
-								<label
-									class="form-label fw-bold"
-									for="device-protection"
-								>
-									Device Protection
-								</label>
-								<small>
-									(berlangganan paket perlindungan perangkat
-									tambahan?)
-								</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-shield-alt"></i>
-									</span>
-									<select
-										class="form-select"
-										name="device-protection"
-										id="device-protection"
-									>
-										<option
-											value="No internet service"
-											selected
-										>
-											No internet service
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
+                        <!-- Device Protection -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="device-protection">
+                                Device Protection
+                            </label>
+                            <small>
+                                (berlangganan paket perlindungan
+                                perangkat tambahan?)
+                            </small>
+                            <select aria-label="Default select example" class="form-select" id="device-protection"
+                                    name="device-protection">
+                                {% for name in yes_no_services %}
+                                <option value={{ yes_no_services_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Tech Support -->
-								<label
-									class="form-label fw-bold"
-									for="tech-support"
-								>
-									Tech Support
-								</label>
-								<small>
-									(berlangganan paket dukungan teknis
-									tambahan?)
-								</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i
-											class="fas fa-chalkboard-teacher"
-										></i>
-									</span>
-									<select
-										class="form-select"
-										name="tech-support"
-										id="tech-support"
-									>
-										<option
-											value="No internet service"
-											selected
-										>
-											No internet service
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
+                        <!-- Tech Support -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="tech-support">
+                                Tech Support
+                            </label>
+                            <small>
+                                (berlangganan paket dukungan teknis
+                                tambahan ?)
+                            </small>
+                            <select aria-label="Default select example" class="form-select" id="tech-support"
+                                    name="tech-support">
+                                {% for name in yes_no_services %}
+                                <option value={{ yes_no_services_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Streaming TV -->
-								<label
-									class="form-label fw-bold"
-									for="streaming-tv"
-								>
-									Streaming TV
-								</label>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-tv"></i>
-									</span>
-									<select
-										class="form-select"
-										name="streaming-tv"
-										id="streaming-tv"
-									>
-										<option
-											value="No internet service"
-											selected
-										>
-											No internet service
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
+                        <!-- Streaming TV -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="streaming-tv">
+                                Streaming TV
+                            </label>
+                            <select aria-label="Default select example" class="form-select" id="streaming-tv"
+                                    name="streaming-tv">
+                                {% for name in yes_no_services %}
+                                <option value={{ yes_no_services_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Streaming Movie -->
-								<label
-									class="form-label fw-bold"
-									for="streaming-movie"
-								>
-									Streaming Movie
-								</label>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-film"></i>
-									</span>
-									<select
-										class="form-select"
-										name="streaming-movie"
-										id="streaming-movie"
-									>
-										<option
-											value="No internet service"
-											selected
-										>
-											No internet service
-										</option>
-										<option value="Yes">Yes</option>
-										<option value="No">No</option>
-									</select>
-								</div>
+                        <!-- Streaming Movie -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="streaming-movie">
+                                Streaming Movie
+                            </label>
 
-								<!-- Contract -->
-								<label
-									class="form-label fw-bold"
-									for="contract"
-								>
-									Contract
-								</label>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="far fa-handshake"></i>
-									</span>
-									<select
-										class="form-select"
-										name="contract"
-										id="contract"
-									>
-										<option value="Month-to-month" selected>
-											Month-to-month
-										</option>
-										<option value="Two year">
-											Two year
-										</option>
-										<option value="One year">
-											One year
-										</option>
-									</select>
-								</div>
+                            <select aria-label="Default select example" class="form-select" id="streaming-movie"
+                                    name="streaming-movie">
+                                {% for name in yes_no_services %}
+                                <option value={{ yes_no_services_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Paperless Billing -->
-								<div class="mb-4">
-									<label class="form-label fw-bold">
-										Paperless Billing
-									</label>
-									<small>
-										(memilih penagihan tanpa kertas?)
-									</small>
-									<br />
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="paperles-billing"
-											id="paperles-billing-yes"
-										/>
-										<label
-											class="form-check-label"
-											for="paperles-billing-yes"
-										>
-											Yes
-										</label>
-									</div>
-									<div class="form-check form-check-inline">
-										<input
-											class="form-check-input"
-											type="radio"
-											name="paperles-billing"
-											id="paperles-billing-no"
-											required
-										/>
-										<label
-											class="form-check-label"
-											for="paperles-billing-no"
-										>
-											No
-										</label>
-									</div>
-								</div>
+                        <!-- Contract -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="contract">
+                                Contract
+                            </label>
 
-								<!-- Payment Method -->
-								<label
-									class="form-label fw-bold"
-									for="payment-method"
-								>
-									Payment Method
-								</label>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="far fa-credit-card"></i>
-									</span>
-									<select
-										class="form-select"
-										name="payment-method"
-										id="payment-method"
-									>
-										<option value="Mailed check" selected>
-											Mailed check
-										</option>
-										<option value="Electronic check">
-											Electronic check
-										</option>
-										<option
-											value="Bank transfer (automatic)"
-										>
-											Bank transfer (automatic)
-										</option>
-										<option value="Credit card (automatic)">
-											Credit card (automatic)
-										</option>
-									</select>
-								</div>
+                            <select aria-label="Default select example" class="form-select" id="contract"
+                                    name="contract">
+                                <option selected value=0.0>
+                                    Month-to-month
+                                </option>
+                                <option value=2.0>Two year</option>
+                                <option value=1.0>One year</option>
+                            </select>
+                        </div>
 
-								<!-- Monthly Charges -->
-								<label
-									for="monthly-charges"
-									class="form-label fw-bold"
-								>
-									Monthly Charges
-								</label>
-								<small>(total biaya bulanan)</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-dollar-sign"></i>
-									</span>
-									<input
-										type="number"
-										min="0"
-										step="0.01"
-										class="form-control"
-										id="monthly-charges"
-										name="monthly-charges"
-										placeholder="0"
-										required
-									/>
-								</div>
+                        <!-- Paperless Billing -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="paperles-billing">
+                                Paperless Billing
+                            </label>
+                            <select aria-label="Default select example" class="form-select" id="paperles-billing"
+                                    name="paperles-billing">
+                                {% for name in yes_or_no_only %}
+                                <option value={{ yes_or_no_only_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
 
-								<!-- Total Charges -->
-								<label
-									for="total-charges"
-									class="form-label fw-bold"
-								>
-									Total Charges
-								</label>
-								<small>(total semua biaya)</small>
-								<div class="input-group mb-4">
-									<span class="input-group-text">
-										<i class="fas fa-dollar-sign"></i>
-									</span>
-									<input
-										type="number"
-										min="0"
-										step="0.01"
-										class="form-control"
-										id="total-charges"
-										name="total-charges"
-										placeholder="0"
-										required
-									/>
-								</div>
+                        <!-- Payment Method -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                Payment Method
+                            </label>
 
-								<!-- Submit -->
-								<div class="d-grid">
-									<button
-										type="submit"
-										class="btn btn-submit"
-									>
-										Predict
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</section>
+                            <select aria-label="Default select example" class="form-select" id="payment-method"
+                                    name="payment-method">
+                                <option selected value=3.0>
+                                    Mailed check
+                                </option>
+                                <option value=2.0>
+                                    Electronic check
+                                </option>
+                                <option value=0.0>
+                                    Bank transfer (automatic)
+                                </option>
+                                <option value="1.0">
+                                    Credit card (automatic)
+                                </option>
+                            </select>
+                        </div>
 
-				<!-- Footer -->
-				<footer class="footer">
-					<div class="text-sm-center">
-						Copyright© 2021 Kelompok 1 Microcredential Data
-						Scientist
-					</div>
-				</footer>
-			</div>
-		</div>
-	</body>
-	<!-- Option 1: Bootstrap Bundle with Popper -->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-		crossorigin="anonymous"
-	></script>
+                        <!-- City -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                City
+                            </label>
+
+                            <select aria-label="Default select example" class="form-select" id="city"
+                                    name="city">
+                                {% for name in cities %}
+                                <option value={{ city_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Zip Code -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">
+                                Zip Code
+                            </label>
+
+                            <select aria-label="Default select example" class="form-select" id="zip_code"
+                                    name="zip_code">
+                                {% for name in zip_codes %}
+                                <option value={{ zip_code_number[loop.index0] }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Monthly Charges -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="monthly-charges">
+                                Monthly Charges
+                            </label>
+                            <small>(total biaya bulanan)</small>
+                            <select aria-label="Default select example" class="form-select" id="monthly-charges"
+                                    name="monthly-charges">
+                                {% for name in monthly_charges %}
+                                <option value={{ name }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <!-- Total Charges -->
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" for="total-charges">
+                                Total Charges
+                            </label>
+                            <small>(total biaya kuartal)</small>
+                            <select aria-label="Default select example" class="form-select" id="total-charges"
+                                    name="total-charges">
+                                {% for name in total_charges %}
+                                <option value={{ name }}>
+                                    {{ name }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="d-grid">
+                            <button class="btn btn-submit" type="submit">
+                                Predict
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="text-sm-center">
+                Copyright© 2021 Kelompok 1 Microcredential Data
+                Scientist
+            </div>
+        </footer>
+    </div>
+</div>
+</body>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script crossorigin="anonymous" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
