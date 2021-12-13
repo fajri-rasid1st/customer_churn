@@ -17,6 +17,14 @@
 			crossorigin="anonymous"
 		/>
 
+		<!-- Google font -->
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+
 		<!-- Font awesome -->
 		<link rel="stylesheet" href="css/all.min.css" />
 
@@ -53,10 +61,9 @@
 								<div class="row mb-4">
 									<div class="col">
 										<!-- City -->
-
-										<label for="city" class="form-label"
-											>City</label
-										>
+										<label for="city" class="form-label">
+											City
+										</label>
 										<input
 											class="form-control"
 											list="citylistOptions"
@@ -82,8 +89,9 @@
 										<label
 											for="postal-code"
 											class="form-label"
-											>Postal Code</label
 										>
+											Postal Code
+										</label>
 										<input
 											class="form-control"
 											list="postalCodelistOptions"
@@ -147,7 +155,6 @@
 									<label class="form-label fw-bold">
 										Senior Citizen
 									</label>
-
 									<small>(berusia 65 tahun ke atas?)</small>
 									<br />
 									<div class="form-check form-check-inline">
@@ -258,17 +265,20 @@
 								</div>
 
 								<!-- Tenure Months -->
-								<div class="mb-4">
-									<label
-										for="tenure-months"
-										class="form-label fw-bold"
-									>
-										Tenure Months
-									</label>
-									<small
-										>(total bulan yang telah dihabiskan di
-										perusahaan)</small
-									>
+								<label
+									for="tenure-months"
+									class="form-label fw-bold"
+								>
+									Tenure Months
+								</label>
+								<small>
+									(total bulan yang telah dihabiskan di
+									perusahaan)
+								</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="far fa-building"></i>
+									</span>
 									<input
 										type="number"
 										min="0"
@@ -322,16 +332,19 @@
 								</div>
 
 								<!-- Multiple Line -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="multiple-line"
-									>
-										Multiple Line
-									</label>
-									<small>
-										(berlangganan beberapa saluran telepon?)
-									</small>
+								<label
+									class="form-label fw-bold"
+									for="multiple-line"
+								>
+									Multiple Line
+								</label>
+								<small>
+									(berlangganan beberapa saluran telepon?)
+								</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-phone-volume"></i>
+									</span>
 									<select
 										class="form-select"
 										name="multiple-line"
@@ -349,16 +362,19 @@
 								</div>
 
 								<!-- Internet Service -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="internet-service"
-									>
-										Internet Service
-									</label>
-									<small>
-										(berlangganan layanan Internet?)
-									</small>
+								<label
+									class="form-label fw-bold"
+									for="internet-service"
+								>
+									Internet Service
+								</label>
+								<small>
+									(berlangganan layanan Internet?)
+								</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-wifi"></i>
+									</span>
 									<select
 										class="form-select"
 										name="internet-service"
@@ -374,17 +390,20 @@
 								</div>
 
 								<!-- Online Security -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="online-security"
-									>
-										Online Security
-									</label>
-									<small>
-										(berlangganan layanan keamanan online
-										tambahan?)
-									</small>
+								<label
+									class="form-label fw-bold"
+									for="online-security"
+								>
+									Online Security
+								</label>
+								<small>
+									(berlangganan layanan keamanan online
+									tambahan?)
+								</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-user-shield"></i>
+									</span>
 									<select
 										class="form-select"
 										name="online-security"
@@ -402,17 +421,20 @@
 								</div>
 
 								<!-- Online Backup -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="online-backup"
-									>
-										Online Backup
-									</label>
-									<small>
-										(berlangganan layanan pencadangan online
-										tambahan?)
-									</small>
+								<label
+									class="form-label fw-bold"
+									for="online-backup"
+								>
+									Online Backup
+								</label>
+								<small>
+									(berlangganan layanan pencadangan online
+									tambahan?)
+								</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="far fa-window-restore"></i>
+									</span>
 									<select
 										class="form-select"
 										name="online-backup"
@@ -430,17 +452,20 @@
 								</div>
 
 								<!-- Device Protection -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="device-protection"
-									>
-										Device Protection
-									</label>
-									<small>
-										(berlangganan paket perlindungan
-										perangkat tambahan?)
-									</small>
+								<label
+									class="form-label fw-bold"
+									for="device-protection"
+								>
+									Device Protection
+								</label>
+								<small>
+									(berlangganan paket perlindungan perangkat
+									tambahan?)
+								</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-shield-alt"></i>
+									</span>
 									<select
 										class="form-select"
 										name="device-protection"
@@ -458,17 +483,22 @@
 								</div>
 
 								<!-- Tech Support -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="tech-support"
-									>
-										Tech Support
-									</label>
-									<small>
-										(berlangganan paket dukungan teknis
-										tambahan ?)
-									</small>
+								<label
+									class="form-label fw-bold"
+									for="tech-support"
+								>
+									Tech Support
+								</label>
+								<small>
+									(berlangganan paket dukungan teknis
+									tambahan?)
+								</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i
+											class="fas fa-chalkboard-teacher"
+										></i>
+									</span>
 									<select
 										class="form-select"
 										name="tech-support"
@@ -486,13 +516,16 @@
 								</div>
 
 								<!-- Streaming TV -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="streaming-tv"
-									>
-										Streaming TV
-									</label>
+								<label
+									class="form-label fw-bold"
+									for="streaming-tv"
+								>
+									Streaming TV
+								</label>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-tv"></i>
+									</span>
 									<select
 										class="form-select"
 										name="streaming-tv"
@@ -510,13 +543,16 @@
 								</div>
 
 								<!-- Streaming Movie -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="streaming-movie"
-									>
-										Streaming Movie
-									</label>
+								<label
+									class="form-label fw-bold"
+									for="streaming-movie"
+								>
+									Streaming Movie
+								</label>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-film"></i>
+									</span>
 									<select
 										class="form-select"
 										name="streaming-movie"
@@ -534,13 +570,16 @@
 								</div>
 
 								<!-- Contract -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="contract"
-									>
-										Contract
-									</label>
+								<label
+									class="form-label fw-bold"
+									for="contract"
+								>
+									Contract
+								</label>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="far fa-handshake"></i>
+									</span>
 									<select
 										class="form-select"
 										name="contract"
@@ -563,10 +602,9 @@
 									<label class="form-label fw-bold">
 										Paperless Billing
 									</label>
-									<small
-										>(memilih penagihan tanpa
-										kertas?)</small
-									>
+									<small>
+										(memilih penagihan tanpa kertas?)
+									</small>
 									<br />
 									<div class="form-check form-check-inline">
 										<input
@@ -600,13 +638,16 @@
 								</div>
 
 								<!-- Payment Method -->
-								<div class="mb-4">
-									<label
-										class="form-label fw-bold"
-										for="payment-method"
-									>
-										Payment Method
-									</label>
+								<label
+									class="form-label fw-bold"
+									for="payment-method"
+								>
+									Payment Method
+								</label>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="far fa-credit-card"></i>
+									</span>
 									<select
 										class="form-select"
 										name="payment-method"
@@ -630,14 +671,17 @@
 								</div>
 
 								<!-- Monthly Charges -->
-								<div class="mb-4">
-									<label
-										for="monthly-charges"
-										class="form-label fw-bold"
-									>
-										Monthly Charges
-									</label>
-									<small>(total biaya bulanan)</small>
+								<label
+									for="monthly-charges"
+									class="form-label fw-bold"
+								>
+									Monthly Charges
+								</label>
+								<small>(total biaya bulanan)</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-dollar-sign"></i>
+									</span>
 									<input
 										type="number"
 										min="0"
@@ -651,14 +695,17 @@
 								</div>
 
 								<!-- Total Charges -->
-								<div class="mb-4">
-									<label
-										for="total-charges"
-										class="form-label fw-bold"
-									>
-										Total Charges
-									</label>
-									<small>(total biaya kuartal)</small>
+								<label
+									for="total-charges"
+									class="form-label fw-bold"
+								>
+									Total Charges
+								</label>
+								<small>(total semua biaya)</small>
+								<div class="input-group mb-4">
+									<span class="input-group-text">
+										<i class="fas fa-dollar-sign"></i>
+									</span>
 									<input
 										type="number"
 										min="0"
@@ -671,6 +718,7 @@
 									/>
 								</div>
 
+								<!-- Submit -->
 								<div class="d-grid">
 									<button
 										type="submit"
