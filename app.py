@@ -55,7 +55,7 @@ def do_predic(
 
     to_data_frame = pandas.DataFrame(data=predic, index=[0])
 
-    the_model = joblib.load("clfFinalModel3.sav")
+    the_model = joblib.load("clfFinalModel4.sav")
 
     result = the_model.predict(to_data_frame)
 
